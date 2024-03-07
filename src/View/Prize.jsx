@@ -39,6 +39,7 @@ const openCard = keyframes`
 
 const View = styled.section`
     display: grid;
+    
     grid-template-columns: 1fr;
     gap: 24px;
     height: 100vh;
