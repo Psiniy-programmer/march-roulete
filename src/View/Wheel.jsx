@@ -5,7 +5,7 @@ import arrowImg from '../arrow.svg';
 import wheelText from '../wheelText.svg';
 import { Button } from '../components/Button/Button';
 
-const animationTime = 0;
+const animationTime = 3;
 const animationTimeFromMs = animationTime * 1000;
 
 const wheelAnimation = keyframes`
