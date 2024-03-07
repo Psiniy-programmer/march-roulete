@@ -52,10 +52,19 @@ const Right = styled.div`
 `;
 const ArrowWrapper = styled.div`
     position: absolute;
+    @media (max-width: 600px) {
+        left: -20px;
+    }
     left: -50px;
     z-index: 2;
 
     & > img {
+        @media (max-width: 600px) {
+            width: 30px;
+            height: 30px;
+        }
+        width: 80px;
+        height: 80px;
         transform: rotate(-90deg);
     }
 `;
