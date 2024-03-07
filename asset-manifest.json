@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/march-roulete/static/css/main.348218dd.css",
-    "main.js": "/march-roulete/static/js/main.faa94498.js",
+    "main.js": "/march-roulete/static/js/main.3b80b2a6.js",
     "static/media/testWheel.svg": "/march-roulete/static/media/testWheel.f8e30d9331015ef5a7ec6649de6be821.svg",
     "static/media/title.png": "/march-roulete/static/media/title.0eb47da290d2b4a00bb8.png",
     "static/media/rose.png": "/march-roulete/static/media/rose.ddcab1f6e410d5db7f7a.png",
@@ -11,12 +11,12 @@
     "static/media/prize.svg": "/march-roulete/static/media/prize.0b185f11623eba5dcc2be9004a8ddd65.svg",
     "static/media/wheelText.svg": "/march-roulete/static/media/wheelText.794fb0e07a286eb21a83c093e4b75134.svg",
     "index.html": "/march-roulete/index.html",
-    "static/media/arrow.svg": "/march-roulete/static/media/arrow.7cb11b0c5bd2ba38351d91d444c4c397.svg",
+    "static/media/arrow.svg": "/march-roulete/static/media/arrow.bdb0679ce18a856400db895ad450b156.svg",
     "main.348218dd.css.map": "/march-roulete/static/css/main.348218dd.css.map",
-    "main.faa94498.js.map": "/march-roulete/static/js/main.faa94498.js.map"
+    "main.3b80b2a6.js.map": "/march-roulete/static/js/main.3b80b2a6.js.map"
   },
   "entrypoints": [
     "static/css/main.348218dd.css",
-    "static/js/main.faa94498.js"
+    "static/js/main.3b80b2a6.js"
   ]
 }
