@@ -1,6 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styled, { css, keyframes } from 'styled-components';
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import wheelImg from '../testWheel.svg';
 import arrowImg from '../arrow.svg';
 import wheelText from '../wheelText.svg';
@@ -16,19 +15,22 @@ const wheelAnimation = keyframes`
 
 const Section = styled.section`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 24px;
     height: 100vh;
     padding: 12px 24px;
 `;
 const Left = styled.div`
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    margin-top: 140px;
-    gap: 270px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+
+    & > img {
+        justify-self: center;
+    }
 `;
 const ButtonWrapper = styled.div`
-    height: 130px;
 `;
 const Right = styled.div`
     position: relative;
@@ -37,6 +39,8 @@ const Right = styled.div`
     align-items: center;
 
     & > img {
+        width: 500px;
+
         ${({ isRunning }) => {
             if (isRunning) {
                 return css`
@@ -68,18 +72,17 @@ export const Wheel = ({onPrize}) => {
         }, animationTimeFromMs)
     };
 
-    return <Element>
-        <Section>
+    return <Section id='Wheel'>
             <Left>
                 <img src={wheelText} className="App-logo" alt="Крутите барабан" />
+               
+                <Right isRunning={isWheelStarted}>
+                    <ArrowWrapper>
+                        <img src={arrowImg} alt="arrow" />
+                    </ArrowWrapper>
+                        <img src={wheelImg} alt="wheel" />
+                </Right>
                 <ButtonWrapper><Button disabled={isWheelStarted} onClick={startWheel} isReversed>Крутить барабан</Button></ButtonWrapper>
-            </Left>
-            <Right isRunning={isWheelStarted}>
-                <ArrowWrapper>
-                    <img src={arrowImg} className="App-logo" alt="arrow" />
-                </ArrowWrapper>
-                    <img src={wheelImg} className="App-logo" alt="wheel" />
-            </Right>
-        </Section>
-    </Element>
+            </Left> 
+    </Section>
 };

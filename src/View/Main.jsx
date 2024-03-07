@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 import titleImg from '../title.png';
 import {keyframes, styled} from 'styled-components'
 import { Button } from "../components/Button/Button";
 import { Colors } from "../colors";
+import { scrollTo } from "../utils";
 
 const openCircle = keyframes`
     from {
@@ -63,16 +63,14 @@ const ButtonWrapper = styled.div`
 `;
 
 export const Main = () => {
-    
-    return <Element>
-        <Section>
+
+    return <Section id='Main'>
         <Circle />
         <TextWrapper>
             <img src={titleImg} className="App-logo" alt="circle" />
         </TextWrapper>
         <ButtonWrapper>
-            <Button>Принять участие</Button>
+            <Button onClick={() => scrollTo('Wheel')}>Принять участие</Button>
         </ButtonWrapper>
     </Section>
-    </Element>
 };

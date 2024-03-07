@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import {Main} from './View/Main'
 import { Wheel } from './View/Wheel';
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import styled from 'styled-components';
 import { Prize } from './View/Prize';
-
+import { Meme } from './View/Meme';
 
 const Wrapper = styled.div`
   overflow: hidden;
@@ -17,7 +16,14 @@ function App() {
   return (
     <Wrapper className="App">
       <Main />
-      {isPrizeWon ?  <Prize /> : <Wheel onPrize={() => setIsPrizeWon(true)} />}
+      {isPrizeWon ?  
+      <>
+        <Prize />
+        <Meme againCallback={() => {
+          setIsPrizeWon(false);
+        }} />
+      </>
+      : <Wheel onPrize={() => setIsPrizeWon(true)} />}
     </Wrapper>
   );
 }

@@ -1,15 +1,45 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import styled, { keyframes } from "styled-components";
 import prizeImg from '../prize.svg';
 import { Button } from "../components/Button/Button";
-import { getCompliment } from "../utils";
+import { getCompliment, scrollTo } from "../utils";
 import { Colors } from "../colors";
 import { Text } from "../components/Text/Text";
 import { Card } from "../components/Card/Card";
 
+const fromLeftToCenter = keyframes`
+    from {
+        transform: translateX(1000px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+`;
+
+const fromRightToCenter = keyframes`
+    from {
+        transform: translateX(-1000px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+`;
+
+const openCard = keyframes`
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+`;
+
 const View = styled.section`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 24px;
     height: 100vh;
     padding: 12px 24px;
@@ -18,45 +48,44 @@ const View = styled.section`
 const Left = styled.div`
     display: grid;
     grid-auto-flow: row;
-    gap: 100px;
-    margin-left: 50px;
+    align-items: center;
+    justify-content: center;
 `;
 const PrizeText = styled.div`
-    margin-top: 70px;
+    margin-top: 20px;
+
+    animation: ${fromLeftToCenter} 1s ease forwards;
 `;
 const ButtonWrapper = styled.div`
     height: 70px;
+    animation: ${fromRightToCenter} 1s ease forwards;
 `;
-const Right = styled.div`
+const CardWrapper = styled.div`
     display: grid;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    animation: ${openCard} 1s ease forwards;
 `;
 
 export const Prize = () => {
-    // useEffect(() => {
-    //     getCompliment();
-    // }, []);
+    const [compliment, setCompliment] = useState();
 
-    const temp = 'Твой смех подобен весеннему бризу, что несет с собой радость и тепло';
+    useEffect(() => {
+        const newCompliment = getCompliment();
+        setCompliment(newCompliment);
+    }, []);
 
-    return <View>
+    return <View id='Prize'>
         <Left>
             <PrizeText>
                 <img src={prizeImg} className="App-logo" alt="circle" />
             </PrizeText>
-
+            <CardWrapper>
+                <Card>
+                    <Text>{compliment}</Text>
+                </Card>
+            </CardWrapper>
             <ButtonWrapper>
-                <Button isReversed><Text>Что было еще?</Text></Button>
+                <Button onClick={() => scrollTo('Meme')} isReversed><Text>Все призы</Text></Button>
             </ButtonWrapper>
         </Left>
-        <Right>
-            {/* <Circle> */}
-                <Card>
-                    <Text>{temp}</Text>
-                </Card>
-            {/* </Circle> */}
-        </Right>
     </View>
 };

@@ -24,7 +24,9 @@ img {
 	width: 85%;
 	max-width: 400px;
 	transition: .25s ease;
-	&:hover {			
+    justify-self: center;
+	
+    &:hover {			
 		transform: rotate(5deg);
 		.card:before {
 			transform: translatey(-2%) rotate(-4deg);
@@ -66,7 +68,6 @@ img {
 		transform: translatey(2%) rotate(6deg);
 	}
 	
-
 	
 }
 	.image {
